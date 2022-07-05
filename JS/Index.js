@@ -53,8 +53,14 @@ function compraCliente(){
 }
 
 function preciosCliente(){
+    let lista = "-- Lista de precios -- \n\n";
 
+    for (let producto of listaActulizada){
+        lista += "Nombre: " + producto.nombre + "Precio: " + producto.precio + "\n";
+    }
+        alert(lista);
 }
+    
 
 function carro() {
     let chango = 0;
@@ -62,11 +68,9 @@ function carro() {
     for ( let productos of carrito) {
         chango += productos.precio;
     }
-
-        alert ("El Total es $" + chango);
-
-    
-
+    alert ("El Total es $" + chango);
+    let pago = parseInt(prompt("Con cuanto abonas?"));
+    alert ("Su vuelto es $" + (pago - chango) + " \n Muchas Gracias, vuelvas prontos!");
 }
 
 
@@ -96,7 +100,7 @@ function agregarProd(){
     let precioObj = "";
     let stockObj = "";
     let agregarobj = "";
-
+    
     while ((agregarobj !== null && agregarobj !== "NO")) {
         nombreObj = prompt("Ingrese el producto");
         precioObj = parseInt(prompt("Ingrese el precio"));
@@ -104,7 +108,7 @@ function agregarProd(){
         agregarobj = prompt("Quieres agregar otro objeto?").toUpperCase();
 
         const obj = {nombre: nombreObj, precio: precioObj, cantidad: stockObj};
-        productos.push(obj);
+        productos.push(obj);        
     }
 }
 
