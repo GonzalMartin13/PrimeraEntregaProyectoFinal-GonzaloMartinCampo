@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 25px;
+    box-sizing: border-box;
+}
+body{
+    overflow: auto;
+body::-webkit-scrollbar {
+    display: none;
+}
+body:hover::-webkit-scrollbar {
+        display: initial;
+}
+body::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0);
+}
+}

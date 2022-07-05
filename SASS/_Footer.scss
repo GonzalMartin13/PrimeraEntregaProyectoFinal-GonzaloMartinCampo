@@ -1,0 +1,77 @@
+footer{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    width: auto;
+    height: 6rem;
+    position:relative;
+    border-top: 1rem rgba(245, 245, 245, 0.563) double;
+    margin-bottom: 1rem;
+    div{
+        p{
+        position: relative;
+        top: 0.5rem;
+        text-align: center;
+        font-size: smaller;
+        background-image: linear-gradient(
+            to right, rgb(216, 37, 32), rgb(255, 141, 0), rgb(255, 233, 0), rgb(0, 127, 71), rgb(48, 100, 169), #87189D);
+        background-size: 400px, 400px;
+        animation: grad-fondo 3s infinite ease-in;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+        p:hover{
+            animation: grad-fondo 350ms infinite ease-in;
+        }
+    }
+    .EnlacesFooter{ 
+        ul{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+        }
+        li{
+            margin: 0px 5px 0px 5px;
+            list-style: none;
+            a{
+                text-decoration: none;
+                color:aliceblue;
+                font-size: smaller;
+            }
+            a:hover{
+                color: black;
+                transition: 1s;
+            }
+        }
+    }
+        div{
+            display: flex;
+            justify-content: center;
+            svg{
+                margin-left: 20px;
+                color: aliceblue;
+                a{
+                    text-decoration: none;
+                }
+            }
+        }
+        svg:hover{
+            color: black;
+            transition: 1s;
+        }
+    }
+
+@keyframes grad-fondo {
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
+

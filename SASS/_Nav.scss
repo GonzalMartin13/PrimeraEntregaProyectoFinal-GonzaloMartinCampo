@@ -1,0 +1,35 @@
+nav{
+    position: absolute;
+    margin-top: 1rem;
+    border-bottom: 1rem rgba(245, 245, 245, 0.563) double;
+    ul{
+        li{
+            a:hover{
+                transition: 800ms;
+                color: whitesmoke;
+                text-decoration: underline;
+            }
+        }
+    }
+    .NavList{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        li{
+            margin: 0px 10px 0px 10px;
+        }
+    }
+}
+
+#Logo{
+    background-image: linear-gradient(
+        to right, rgb(216, 37, 32), rgb(255, 141, 0), rgb(255, 233, 0), rgb(0, 127, 71), rgb(48, 100, 169), #87189D);
+    background-size: 400px, 400px;
+    animation: grad-fondo 3s infinite ease-in;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#Logo:hover{
+    animation: grad-fondo 350ms infinite ease-in;
+}
