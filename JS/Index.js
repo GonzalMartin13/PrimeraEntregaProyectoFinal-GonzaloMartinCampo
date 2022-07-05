@@ -1,59 +1,59 @@
 // Funciones
 
 function bienvenida() {
-    let tipodepersona = parseInt(prompt("Bienvenido \n Si eres cliente ingresa (1) \n Si sos parte de la empresa pon (2)"));
-    while (tipodepersona === "" || tipodepersona === null){
-        tipodepersona = parseInt(prompt("Sos un cliente (1) o un empleado (2)?"));
-    };
+    alert ("Bienvenido al comercio virtual de La Tienda Del Mueble!!");
+    let tipodepersona;
+    do { 
+        tipodepersona = parseInt(prompt(" Si eres cliente ingresa (1) \n Si sos parte de la empresa pon (2)"));
+    } while (tipodepersona !== 1 && tipodepersona != 2);        
+    
     if (tipodepersona === 1) {
-        return "cliente";
+                cliente();
     } else if (tipodepersona === 2) {
-        return "empleado";
+                empleado();
     }
 }
 
 function cliente() {
         let accion = parseInt(prompt("Que deseas hacer? \n 1- Comprar \n 2- Ver Precios \n 3- Ir al carrito \n 4- Salir"));
-    while (accion !== 4){
+    while (accion <= 1 && accion >= 4) {
+            accion = parseInt(prompt("Elija una opccion \n 1- Comprar \n 2- Ver Precios \n 3- Ir al carrito \n 4- Salir"));} 
+
     switch (accion){
             case 1: 
                 compraCliente();
-                break;
+                
             case 2: 
                 preciosCliente();
                 break;
             case 3: 
                 carro();
                 break;
+            case 4:
+                alert("Chauuuu =(");
         }
-    }
-} 
+    } 
 
 function compraCliente(){
     for (let producto of productos) {
-        let respuesta = prompt("Te interesa un " + producto.nombre + " con un precio de " + producto.precio + "\n SI \n NO").toUpperCase();
-        while (respuesta ==="SI" || respuesta === "NO"){
+        let nuevosProd = new Producto (producto); 
+
+        let respuesta = prompt("Te interesa un " + nuevosProd.nombre + " con un precio de $" + nuevosProd.precio + "\n SI \n NO").toUpperCase();
         switch(respuesta) {
             case "SI": 
                 carrito.push(producto);
                 break;
-            case "NO":
+            default:
                 break;
-        }
+        }    
     }
-        let continuamoscomprando = prompt("Quieres volver al menu principal? \n SI \n CHAU").toUpperCase();
-        while (continuamoscomprando !== "SI" || continuamoscomprando !== "CHAU"){
-        switch(continuamoscomprando){
-            case "SI":
-                cliente();
-                break;
-            case "CHAU":
-                alert("Muchas Gracias por su compra, en breve va a ser redireccionado al carrito");
-                carro();
-                break;
-            }
-        }
-    }
+            
+    let seguimosCompra = parseInt(prompt("Quieres volver al menu? \n 1) Seguir comprando \n 2) Quiero ir a pagar"));
+    if (seguimosCompra === 1){ compraCliente();} else if ( seguimosCompra === 2){ carro();}
+}
+
+function preciosCliente(){
+
 }
 
 function carro() {
@@ -61,8 +61,11 @@ function carro() {
 
     for ( let productos of carrito) {
         chango += productos.precio;
-        alert ("El Total es $" + chango);
     }
+
+        alert ("El Total es $" + chango);
+
+    
 
 }
 
@@ -88,20 +91,26 @@ function empleado(){
 }
 
 function agregarProd(){
-    let nombre_producto = "";
-    let precio_producto = "";
-    let stock_producto = "";
+    
+    let nombreObj = "";
+    let precioObj = "";
+    let stockObj = "";
+    let agregarobj = "";
 
-    while ((nombre_producto !== null)) {
-        nombre_producto = prompt("Ingrese el producto");
-        precio_producto = parseFloat(prompt("Ingrese el precio"));
-        stock_producto = parseInt(prompt("Ingrese la cantidad"));
+    while ((agregarobj !== null && agregarobj !== "NO")) {
+        nombreObj = prompt("Ingrese el producto");
+        precioObj = parseInt(prompt("Ingrese el precio"));
+        stockObj = parseInt(prompt("Ingrese la cantidad"));
+        agregarobj = prompt("Quieres agregar otro objeto?").toUpperCase();
 
-        const producto = new Producto (nombre_producto, precio_producto, stock_producto);
-        productos.push(producto);
+        const obj = {nombre: nombreObj, precio: precioObj, cantidad: stockObj};
+        productos.push(obj);
     }
 }
 
+function stock(){
+
+}
 
 // Declaro variables
 
@@ -110,11 +119,6 @@ let usuario = bienvenida();
 // Llamada a la Accion
 
 
-if (usuario === "cliente") {
-    cliente();
-} else if (usuario === "empleado"){
-    empleado();
-}
 
 
 
